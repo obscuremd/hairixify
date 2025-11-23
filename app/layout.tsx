@@ -1,15 +1,17 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { Bai_Jamjuree, Montserrat } from "next/font/google";
+import Header from "@/components/localComponents/header";
+import Footer from "@/components/localComponents/footer";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+// Load Bai Jamjuree font
+const baiJamjuree = Bai_Jamjuree({
   subsets: ["latin"],
+  weight: ["200"],
 });
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const playpenSansDeva = Montserrat({
   subsets: ["latin"],
+  weight: ["200"],
 });
 
 export const metadata: Metadata = {
@@ -24,10 +26,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`${baiJamjuree.className} antialiased p-4 space-y-8 `}>
+        <Header />
+
         {children}
+        <Footer />
       </body>
     </html>
   );
