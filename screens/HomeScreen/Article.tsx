@@ -1,3 +1,5 @@
+import { Calendar, Heart, Tag } from "lucide-react";
+
 export default function Article() {
   return (
     <div className="w-full py-10 px-4">
@@ -44,9 +46,18 @@ function ArticleCard({
       <p className="h-[3em] text-sm leading-relaxed">{description}</p>
 
       <div className="w-full flex justify-between items-center text-sm text-secondary-cs">
-        <div>{category}</div>
-        <div>{date}</div>
-        <div>{likes} Likes</div>
+        <div className="flex gap-1 text-nowrap items-center text-primary-c">
+          <Tag className="w-4 h-4" />
+          <p className="w-[7em] truncate">{category}</p>
+        </div>
+        <div className="flex gap-1 text-nowrap items-center">
+          <Calendar className="w-4 h-4" />
+          <p>{date}</p>
+        </div>
+        <div className="flex gap-1 text-nowrap items-center">
+          <Heart className="w-4 h-4" />
+          <p>{likes} Likes</p>
+        </div>
       </div>
     </div>
   );

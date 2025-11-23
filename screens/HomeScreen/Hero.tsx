@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { SearchIcon } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export default function Hero() {
@@ -65,7 +66,7 @@ export default function Hero() {
 
       <div className="absolute inset-0 flex flex-col items-center justify-between p-4 rounded-3xl text-tertiary-c bg-linear-to-b from-black/50 to-black/90 ">
         <div className="pt-[40%] md:pt-[10%] flex flex-col gap-2 items-center text-center">
-          <h1 className="text-3xl md:text-4xl font-bold">
+          <h1 className="text-3xl md:text-4xl font-semibold">
             <span className="text-primary-c">No.1</span>
              Free stylists and marketplace website!
           </h1>
@@ -93,25 +94,27 @@ export default function Hero() {
               />
             ))}
           </div>
-          <div className="bg-muted flex gap-10 text-secondary-c rounded-2xl p-2">
-            <div className="flex gap-2">
-              <img
-                src={media[index].image}
-                alt={`hero image ${index}`}
-                className="object-cover w-24 h-14 rounded-xl"
-              />
+          <Link href={`/product/${index}`}>
+            <div className="bg-muted flex gap-10 text-secondary-c rounded-2xl p-2">
+              <div className="flex gap-2">
+                <img
+                  src={media[index].image}
+                  alt={`hero image ${index}`}
+                  className="object-cover w-24 h-14 rounded-xl"
+                />
 
-              <div>
-                <h1 className="text-lg font-bold w-28 text-nowrap truncate">
-                  {media[index].primary_text}
-                </h1>
-                <p className="text-sm font-light w-28 text-nowrap truncate">
-                  {media[index].secondary_text}
-                </p>
+                <div>
+                  <h1 className="text-lg font-bold w-28 text-nowrap truncate">
+                    {media[index].primary_text}
+                  </h1>
+                  <p className="text-sm font-light w-28 text-nowrap truncate">
+                    {media[index].secondary_text}
+                  </p>
+                </div>
               </div>
+              <Badge className="h-fit">{media[index].category}</Badge>
             </div>
-            <Badge className="h-fit">{media[index].category}</Badge>
-          </div>
+          </Link>
         </div>
       </div>
     </main>

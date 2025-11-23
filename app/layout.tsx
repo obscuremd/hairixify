@@ -7,11 +7,7 @@ import Footer from "@/components/localComponents/footer";
 // Load Bai Jamjuree font
 const baiJamjuree = Bai_Jamjuree({
   subsets: ["latin"],
-  weight: ["200"],
-});
-const playpenSansDeva = Montserrat({
-  subsets: ["latin"],
-  weight: ["200"],
+  weight: ["200", "300", "400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
