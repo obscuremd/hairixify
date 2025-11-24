@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+"use client";
+import { BookingModal } from "@/components/localComponents/bookingModal";
 import {
   Accordion,
   AccordionContent,
@@ -5,52 +8,75 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
+import { Dialog, DialogTrigger } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
+import { useState } from "react";
 
 export default function Services() {
+  const [open, setOpen] = useState(false);
+  const [selectedService, setSelectedService] = useState<any>(null);
+
   return (
     <div>
       <div className="flex justify-between">
         <p className="text-4xl font-black text-primary-c">Services</p>
         <Input className="w-fit" placeholder="Search for Service . . . |" />
       </div>
-      {ServicesData.map((item, index) => (
-        <Accordion
-          key={index}
-          type="single"
-          collapsible
-          className="w-full"
-          defaultValue="item-1"
-        >
-          <AccordionItem value={`item-${index}`}>
-            <AccordionTrigger className="w-full flex justify-between items-center p-2">
-              <Button className="bg-secondary-c font-black">
-                {item.service} ({item.services.length})
-              </Button>
-            </AccordionTrigger>
-            <AccordionContent className="space-y-3">
-              {item.services.map((item, index) => (
-                <div
-                  key={index}
-                  className="bg-muted p-3 rounded-3xl flex flex-col md:flex-row gap-2 justify-between"
-                >
-                  <div>
-                    <p className="text-xl font-semibold">{item.title}</p>
-                    <p className="w-[70%] md:min-h-[4em] truncate">
-                      {item.description}
-                    </p>
+
+      <Dialog open={open} onOpenChange={setOpen}>
+        {ServicesData.map((item, index) => (
+          <Accordion key={index} type="single" collapsible className="w-full">
+            <AccordionItem value={`item-${index}`}>
+              <AccordionTrigger>
+                <Button className="bg-secondary-c font-black">
+                  {item.service} ({item.services.length})
+                </Button>
+              </AccordionTrigger>
+
+              <AccordionContent className="space-y-3">
+                {item.services.map((service, idx) => (
+                  <div
+                    key={idx}
+                    className="bg-muted p-3 rounded-3xl flex flex-col md:flex-row gap-2 justify-between"
+                  >
+                    <div>
+                      <p className="text-xl font-semibold">{service.title}</p>
+                      <p className="w-[70%] md:min-h-[4em] truncate">
+                        {service.description}
+                      </p>
+                    </div>
+
+                    <div className="flex flex-col items-end">
+                      <p>
+                        {service.price === 0 ? "Free" : `$${service.price}`}
+                      </p>
+                      <p>{formatTime(service.time)}</p>
+
+                      <DialogTrigger asChild>
+                        <Button
+                          onClick={() => {
+                            setSelectedService(service);
+                            setOpen(true);
+                          }}
+                        >
+                          Book
+                        </Button>
+                      </DialogTrigger>
+                    </div>
                   </div>
-                  <div className="flex flex-col items-end">
-                    <p>{item.price === 0 ? "Free" : `$${item.price}`}</p>
-                    <p>{formatTime(item.time)}</p>
-                    <Button>Book</Button>
-                  </div>
-                </div>
-              ))}
-            </AccordionContent>
-          </AccordionItem>
-        </Accordion>
-      ))}
+                ))}
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
+        ))}
+
+        {selectedService && (
+          <BookingModal
+            {...selectedService}
+            closeModal={() => setOpen(false)}
+          />
+        )}
+      </Dialog>
     </div>
   );
 }

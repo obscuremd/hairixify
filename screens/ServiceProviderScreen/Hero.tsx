@@ -55,7 +55,7 @@ export default function Hero() {
           <p className="md:text-lg font-light text-secondary">
             1, Raji Oba Bus Stop, Alimosho, Lagos
           </p>
-          <div className="flex gap-2">
+          <div className="flex gap-2 items-center">
             <div className="flex items-center text-primary-c gap-2">
               <Star />
               <p className="text-lg font-semibold ">4.95</p>
@@ -63,7 +63,9 @@ export default function Hero() {
                 (438 Reviews)
               </p>
             </div>
-            <Badge variant={"secondary"}>Haiixify Recommended</Badge>
+            <Badge className="h-fit" variant={"secondary"}>
+              Haiixify Recommended
+            </Badge>
           </div>
           <div className="flex gap-2">
             <Button className="bg-secondary-c text-primary-c">

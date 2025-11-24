@@ -13,7 +13,7 @@ export default function Reviews() {
     <div>
       <div className="space-y-2">
         <p className="text-4xl font-black text-primary-c">Reviews</p>
-        <div className="flex flex-col md:flex-row justify-between">
+        <div className="flex flex-col-reverse md:flex-row justify-between">
           <p className="md:w-[50%]">
             Hairixify guarantees that reviews with the &quot;Verified Hairixify
             user&quot; tag have been added by registered Hairixify users who
