@@ -25,9 +25,9 @@ export default function Footer() {
             Our Services
           </h3>
           <ul className="space-y-2 text-sm opacity-80">
-            <li>Find Stylists</li>
-            <li>Marketplace</li>
-            <li>Job Seekers</li>
+            <li>Group Lessons</li>
+            <li>Massage</li>
+            <li>Snooker</li>
           </ul>
         </div>
 

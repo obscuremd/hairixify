@@ -30,7 +30,7 @@ export default function HomeCard({
           {primary_text}
         </h3>
         <p className="text-lg">{secondary_text}</p>
-        <Button className="bg-secondary-c w-fit">{button_text}</Button>
+        <Button className="bg-tertiary-c w-fit">{button_text}</Button>
       </div>
     </div>
   );

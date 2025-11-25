@@ -3,6 +3,7 @@ import "./globals.css";
 import { Bai_Jamjuree, Montserrat } from "next/font/google";
 import Header from "@/components/localComponents/header";
 import Footer from "@/components/localComponents/footer";
+import { ThemeProvider } from "@/components/ui/themeProvider";
 
 // Load Bai Jamjuree font
 const baiJamjuree = Bai_Jamjuree({
@@ -22,12 +23,21 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${baiJamjuree.className} antialiased p-4 space-y-8 `}>
-        <Header />
+      <ThemeProvider
+        attribute="class"
+        defaultTheme="dark"
+        enableSystem
+        disableTransitionOnChange
+      >
+        <body
+          className={`${baiJamjuree.className} antialiased p-4 space-y-8 bg-background text-tertiary-c`}
+        >
+          <Header />
 
-        {children}
-        <Footer />
-      </body>
+          {children}
+          <Footer />
+        </body>
+      </ThemeProvider>
     </html>
   );
 }
