@@ -23,21 +23,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <ThemeProvider
-        attribute="class"
-        defaultTheme="dark"
-        enableSystem
-        disableTransitionOnChange
-      >
-        <body
-          className={`${baiJamjuree.className} antialiased p-4 space-y-8 bg-background text-tertiary-c`}
-        >
-          <Header />
+      <body className={`${baiJamjuree.className} antialiased p-4 space-y-8 `}>
+        <Header />
 
-          {children}
-          <Footer />
-        </body>
-      </ThemeProvider>
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }

@@ -29,8 +29,8 @@ export default function HomeCard({
         <h3 className="text-primary-c text-2xl md:text-3xl font-semibold">
           {primary_text}
         </h3>
-        <p className="text-lg">{secondary_text}</p>
-        <Button className="bg-tertiary-c w-fit">{button_text}</Button>
+        <p className="text-lg font-semibold">{secondary_text}</p>
+        <Button className="bg-secondary-c w-fit">{button_text}</Button>
       </div>
     </div>
   );

@@ -14,29 +14,30 @@ export default function Header() {
     <header className="w-full">
       <div className="w-full mx-auto flex justify-between items-center font-semibold">
         {/* Logo */}
-        <Link href="/" className="text-xl font-bold flex gap-2 items-center">
-          <img src={"/logo.jpg"} className="w-10 rounded-xl" />
-          <p>Bc Gym Center</p>
+        <Link href="/" className="text-xl font-bold">
+          <img src={"/logo.png"} className="w-28 rounded-xl" />
         </Link>
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-4">
           <Link href="/find-talent">
             <Button className="bg-secondary-c text-primary-c">
-              Gym Membership
+              Find Stylist
             </Button>
           </Link>
           <Link href="/find-talent">
-            <Button className="bg-secondary-c text-primary-c">Services</Button>
+            <Button className="bg-secondary-c text-primary-c">
+              Marketplace
+            </Button>
           </Link>
           <Link href="/find-recruiters">
             <Button className="bg-secondary-c text-primary-c">
-              Contact Us
+              Job Seekers
             </Button>
           </Link>
           <Link href="/auth">
             <Button className="bg-primary-c text-secondary-c font-bold">
-              Register
+              Login / SIgn up
             </Button>
           </Link>
         </nav>
@@ -53,27 +54,25 @@ export default function Header() {
       {/* Mobile Nav */}
       {isOpen && (
         <div className="md:hidden bg-background border-t border-border px-4 py-3 flex flex-col gap-2">
-          <Link href="/find-talent" onClick={() => setIsOpen(false)}>
-            <Button className="bg-secondary-c text-primary-c w-full justify-start">
-              Gym Membership
+          <Link href="/" onClick={() => setIsOpen(false)}>
+            <Button variant="secondary" className="w-full justify-start">
+              Find Stylist
             </Button>
           </Link>
           <Link href="/find-talent" onClick={() => setIsOpen(false)}>
-            <Button className="bg-secondary-c text-primary-c w-full justify-start">
-              Services
+            <Button variant="secondary" className="w-full justify-start">
+              Marketplace
             </Button>
           </Link>
           <Link href="/find-recruiters" onClick={() => setIsOpen(false)}>
-            <Button className="bg-secondary-c text-primary-c w-full justify-start">
-              Contact Us
+            <Button variant="secondary" className="w-full justify-start">
+              Job Seekers
             </Button>
           </Link>
 
-          <div className="flex gap-2 pt-2 w-full">
+          <div className="flex gap-2 pt-2">
             <Link href="/auth">
-              <Button className="bg-primary-c text-secondary-c font-bold w-full justify-start">
-                Register
-              </Button>
+              <Button>Login / SIgn up</Button>
             </Link>
           </div>
         </div>
