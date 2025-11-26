@@ -31,9 +31,9 @@ export default function Hero() {
       <AnimatePresence>
         <motion.div
           key={index} // important
-          initial={{ opacity: 0, x: 100 }}
-          animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: -100 }}
+          initial={{ opacity: 0, x: 100, scale: -0.5 }}
+          animate={{ opacity: 1, x: 0, scale: 1 }}
+          exit={{ opacity: 0, x: -100, scale: 0.5 }}
           transition={{ duration: 1.2, ease: "easeInOut" }}
           className="absolute inset-0"
         >
