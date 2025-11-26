@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Bai_Jamjuree, Montserrat } from "next/font/google";
+import { Bai_Jamjuree } from "next/font/google";
 import Header from "@/components/localComponents/header";
 import Footer from "@/components/localComponents/footer";
 
