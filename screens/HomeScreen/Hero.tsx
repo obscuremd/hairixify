@@ -1,6 +1,7 @@
 "use client";
 
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { SearchIcon } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
@@ -10,27 +11,11 @@ import { useEffect, useState } from "react";
 
 export default function Hero() {
   const media = [
-    {
-      image:
-        "https://plus.unsplash.com/premium_photo-1669675936121-6d3d42244ab5?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8c2Fsb258ZW58MHx8MHx8fDA%3D",
-      primary_text: "Mo's Signatures",
-      secondary_text: "Alimosho, Lagos State",
-      category: "make up",
-    },
-    {
-      image:
-        "https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8c2Fsb258ZW58MHx8MHx8fDA%3D",
-      primary_text: "Elevated Cutz",
-      secondary_text: "Warri, Delta State",
-      category: "Barber",
-    },
-    {
-      image:
-        "https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8c2Fsb258ZW58MHx8MHx8fDA%3D",
-      primary_text: "Wellness Spa",
-      secondary_text: "Sango Ota, Ogun State",
-      category: "Skin Care",
-    },
+    "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&auto=format&fit=crop&q=60",
+
+    "https://images.unsplash.com/photo-1554284126-aa88f22d8b74?w=600&auto=format&fit=crop&q=60",
+
+    "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8R3ltfGVufDB8fDB8fHww",
   ];
 
   const [index, setIndex] = useState(0);
@@ -55,7 +40,7 @@ export default function Hero() {
           className="absolute inset-0"
         >
           <Image
-            src={media[index].image}
+            src={media[index]}
             alt={`hero image ${index}`}
             fill
             className="object-cover rounded-3xl"
@@ -64,57 +49,24 @@ export default function Hero() {
         </motion.div>
       </AnimatePresence>
 
-      <div className="absolute inset-0 flex flex-col items-center justify-between p-4 rounded-3xl text-tertiary-c bg-linear-to-b from-black/50 to-black/90 ">
-        <div className="pt-[40%] md:pt-[10%] px-16 md:px-0 flex flex-col gap-2 items-center text-center">
-          <h1 className="text-3xl md:text-4xl font-bold">
-            <span className="text-primary-c">No.1</span>
-             Free stylists and marketplace website!
+      <div className="absolute inset-0 flex flex-col items-start justify-end p-4 rounded-3xl text-tertiary-c bg-linear-to-b from-black/50 to-black/90 ">
+        <div className="flex flex-col gap-2 ">
+          <h1 className="text-3xl md:text-4xl font-bold ">
+            <span className="text-primary-c">BC </span>
+            Gym Center — Your Fitness Starts Here
           </h1>
-          <p className="text-lg font-light text-secondary">
-            Discover barbers, stylists, hair salons and therapy professionals
-            around you...
+          <p className="text-lg font-light">
+            Build strength, gain confidence and train with professional fitness
+            coaches in a motivating community.
           </p>
-          <div className="relative w-full">
-            <SearchIcon className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-tertiary-c" />
-            <Input
-              type="text"
-              placeholder="Im looking for ..."
-              className="pl-10 text-tertiary-c"
-            />
+          <div className="flex gap-2">
+            <Button className="bg-secondary-c text-primary-c">
+              Contact Us
+            </Button>
+            <Button className="bg-primary-c text-secondary-c font-bold">
+              Join Now
+            </Button>
           </div>
-        </div>
-        <div className="self-end space-y-2">
-          <div className="w-full flex gap-2">
-            {media.map((item, idx) => (
-              <div
-                key={idx}
-                className={`w-1/3 h-1 rounded-full ${
-                  index === idx ? "bg-primary-c" : "bg-secondary"
-                }`}
-              />
-            ))}
-          </div>
-          <Link href={`/product/${index}`}>
-            <div className="bg-muted flex gap-10 text-secondary-c rounded-2xl p-2">
-              <div className="flex gap-2">
-                <img
-                  src={media[index].image}
-                  alt={`hero image ${index}`}
-                  className="object-cover w-24 h-14 rounded-xl"
-                />
-
-                <div>
-                  <h1 className="text-lg font-bold w-28 text-nowrap truncate">
-                    {media[index].primary_text}
-                  </h1>
-                  <p className="text-sm font-light w-28 text-nowrap truncate">
-                    {media[index].secondary_text}
-                  </p>
-                </div>
-              </div>
-              <Badge className="h-fit">{media[index].category}</Badge>
-            </div>
-          </Link>
         </div>
       </div>
     </main>

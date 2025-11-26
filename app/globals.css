@@ -83,8 +83,8 @@
   --sidebar-ring: oklch(0.705 0.015 286.067);
 
   /* main colors */
-  --color-primary-c: #56f09f;
-  --color-secondary-c: #004737;
+  --color-primary-c: #ccaa54;
+  --color-secondary-c: #746132;
   --color-tertiary-c: #fffbec;
 }
 
@@ -122,8 +122,8 @@
   --sidebar-ring: oklch(0.552 0.016 285.938);
 
   /* main colors */
-  --color-primary-c: #3ad688;
-  --color-secondary-c: #003225;
+  --color-primary-c: #ccaa54;
+  --color-secondary-c: #746132;
   --color-tertiary-c: #e6e3d6;
 }
 
