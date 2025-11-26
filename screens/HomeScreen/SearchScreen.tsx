@@ -16,7 +16,7 @@ export default function SearchScreen() {
                 {section.items.map((loc, i) => (
                   <button
                     key={i}
-                    className="flex items-center gap-2 text-lg text-primary hover:underline"
+                    className="flex items-center gap-2 text-lg text-primary hover:underline text-nowrap"
                   >
                     <span>›</span> {loc}
                   </button>
