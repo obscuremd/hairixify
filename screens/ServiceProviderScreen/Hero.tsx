@@ -9,6 +9,8 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 
 export default function Hero() {
+  const isMobile = window.innerWidth < 768;
+
   const media = [
     "https://plus.unsplash.com/premium_photo-1669675936121-6d3d42244ab5?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8c2Fsb258ZW58MHx8MHx8fDA%3D",
     "https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8c2Fsb258ZW58MHx8MHx8fDA%3D",
@@ -56,15 +58,15 @@ export default function Hero() {
             1, Raji Oba Bus Stop, Alimosho, Lagos
           </p>
           <div className="flex gap-2 items-center">
-            <div className="flex items-center text-primary-c gap-2">
+            <div className="flex items-center text-primary-c gap-1">
               <Star />
               <p className="text-lg font-semibold ">4.95</p>
-              <p className="text-lg font-light text-tertiary-c">
+              <p className="text-lg text-nowrap font-light text-tertiary-c">
                 (438 Reviews)
               </p>
             </div>
             <Badge className="h-fit" variant={"secondary"}>
-              Haiixify Recommended
+              Recommended
             </Badge>
           </div>
           <div className="flex gap-2">
@@ -77,12 +79,16 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="flex flex-col md:items-end items-start">
-          <p>Jasmyne Naturalle International is currently open</p>
-          <Button className="bg-secondary-c text-primary-c">
-            Check their Buisness Hours
-          </Button>
-        </div>
+        {!isMobile && (
+          <div className="flex flex-col md:items-end items-start">
+            <p className="text-sm md:text-base">
+              Jasmyne Naturalle International is currently open
+            </p>
+            <Button className="bg-secondary-c text-primary-c">
+              Check their Buisness Hours
+            </Button>
+          </div>
+        )}
       </div>
     </main>
   );

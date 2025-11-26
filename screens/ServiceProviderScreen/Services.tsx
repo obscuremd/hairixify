@@ -18,9 +18,9 @@ export default function Services() {
 
   return (
     <div>
-      <div className="flex justify-between">
+      <div className="flex flex-col md:flex-row justify-between">
         <p className="text-4xl font-black text-primary-c">Services</p>
-        <Input className="w-fit" placeholder="Search for Service . . . |" />
+        <Input className="md:w-fit" placeholder="Search for Service . . . |" />
       </div>
 
       <Dialog open={open} onOpenChange={setOpen}>

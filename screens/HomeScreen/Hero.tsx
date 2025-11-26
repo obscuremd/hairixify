@@ -65,7 +65,7 @@ export default function Hero() {
       </AnimatePresence>
 
       <div className="absolute inset-0 flex flex-col items-center justify-between p-4 rounded-3xl text-tertiary-c bg-linear-to-b from-black/50 to-black/90 ">
-        <div className="pt-[40%] md:pt-[10%] flex flex-col gap-2 items-center text-center">
+        <div className="pt-[40%] md:pt-[10%] px-10 flex flex-col gap-2 items-center text-center">
           <h1 className="text-3xl md:text-4xl font-bold">
             <span className="text-primary-c">No.1</span>
              Free stylists and marketplace website!
